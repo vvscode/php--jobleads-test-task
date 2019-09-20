@@ -35,10 +35,11 @@ class Schedule implements Iterator, Countable {
      */
     private function sortByStartTime()
     {
-        usort($this->timeslots, function () {
+        usort($this->timeslots, function ($task1, $task2) {
             /**
-             * @TODO: Implementation
+             * @DONE: Implementation
              */
+            return $task1->getStartsAt() < $task2->getStartsAt() ? -1 : 1;
         });
     }
 
@@ -63,8 +64,9 @@ class Schedule implements Iterator, Countable {
     public function count()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        return count($this->timeslots);
     }
 
     /**
@@ -73,8 +75,9 @@ class Schedule implements Iterator, Countable {
     function rewind()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        $this->currentPosition = 0;
     }
 
     /**
@@ -83,8 +86,9 @@ class Schedule implements Iterator, Countable {
     function current()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        return $this->timeslots[$this->currentPosition];
     }
 
     /**
@@ -93,8 +97,9 @@ class Schedule implements Iterator, Countable {
     function key()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        return $this->currentPosition;
     }
 
     /**
@@ -103,8 +108,9 @@ class Schedule implements Iterator, Countable {
     function next()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        return $this->currentPosition;
     }
 
     /**
@@ -112,7 +118,8 @@ class Schedule implements Iterator, Countable {
      */
     function valid() {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
+        return !!$this->timeslots[$this->currentPosition];
     }
 }
