@@ -87,8 +87,8 @@ abstract class Timeslot
         $endsAt = $this->getEndsAt();
         $timeslotEndsAt = $timeslot->getEndsAt();
         return
-            ($getStartsAt >= $timeslotStartsAt && $endsAt <= $timeslotEndsAt) ||
-            ($getStartsAt >= $timeslotStartsAt && $startsAt <= $timeslotEndsAt) ||
-            ($getStartsAt <= $timeslotStartsAt && $endsAt >= $timeslotStartsAt);
+            ($startsAt >= $timeslotStartsAt && $endsAt <= $timeslotEndsAt) ||
+            ($startsAt >= $timeslotStartsAt && $startsAt <= $timeslotEndsAt) ||
+            ($startsAt <= $timeslotStartsAt && $endsAt >= $timeslotStartsAt);
     }
 }

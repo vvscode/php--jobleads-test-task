@@ -23,9 +23,9 @@ class ScheduleView {
     public function getNumberOfTimeslots()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
-        return 0;
+        return $this->schedule->count();
     }
 
     /**
@@ -34,8 +34,16 @@ class ScheduleView {
     public function getDurationInMinutes()
     {
         /**
-         * @TODO: Implementation. Include breaks between timeslots in overall schedule duration.
+         * @DONE: Implementation. Include breaks between timeslots in overall schedule duration.
          */
-        return 0;
+        if (!$this->schedule->count()) {
+            return 0;
+        }
+        [$firstTimeslot, $lastTimeslot] = $this->schedule->getEdgeTimeslots();
+        return (
+            $lastTimeslot->getEndsAt()->getTimestamp()
+            -
+            $firstTimeslot->getStartsAt()->getTimestamp()
+            ) / 60;
     }
 }

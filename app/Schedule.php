@@ -122,4 +122,14 @@ class Schedule implements Iterator, Countable {
          */
         return !!$this->timeslots[$this->currentPosition];
     }
+
+    /**
+     * @return [Timeslot, Timeslot]
+     */
+    function getEdgeTimeslots() {
+        return [
+            $this->timeslots[0],
+            $this->timeslots[$this->count() - 1]
+        ];
+    }
 }
