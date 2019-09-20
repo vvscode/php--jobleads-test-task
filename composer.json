@@ -1,0 +1,13 @@
+{
+  "name": "jobleads/festival-app",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-0": {
+      "": "app/"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "phpunit/phpunit": "5.*.*"
+  }
+}

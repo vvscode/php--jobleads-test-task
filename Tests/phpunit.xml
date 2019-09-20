@@ -1,0 +1,13 @@
+<phpunit bootstrap="bootstrap.php" colors="true" >
+    <logging>
+        <log type="junit" target="../build/logs/TEST-junit.xml" logIncompleteSkipped="false" title="Test Results"/>
+    </logging>
+    <testsuites>
+        <testsuite name="Basic Tests">
+            <directory>../Tests/Basic</directory>
+        </testsuite>
+        <testsuite name="Classified Tests">
+            <directory>../Tests/Classified</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
