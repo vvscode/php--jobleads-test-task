@@ -39,7 +39,11 @@ class ScheduleView {
         if (!$this->schedule->count()) {
             return 0;
         }
-        [$firstTimeslot, $lastTimeslot] = $this->schedule->getEdgeTimeslots();
+        // which version is on platform? code doesn't work
+        // [$firstTimeslot, $lastTimeslot] = $this->schedule->getEdgeTimeslots();
+        $edgeTimeslots = $this->schedule->getEdgeTimeslots();
+        $firstTimeslot = $edgeTimeslots[0];
+        $lastTimeslot = end($edgeTimeslots);
         return (
             $lastTimeslot->getEndsAt()->getTimestamp()
             -
