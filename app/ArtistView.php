@@ -23,9 +23,9 @@ class ArtistView {
     public function getInitials()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
-        return '';
+        return $this->artist->getName()[0];
     }
 
     /**
@@ -34,8 +34,8 @@ class ArtistView {
     public function getLowerCase()
     {
         /**
-         * @TODO: Implementation
+         * @DONE: Implementation
          */
-        return '';
+        return strtolower($this->artist->getName());
     }
 }
